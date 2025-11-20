@@ -43,9 +43,9 @@ Pipeline overview:
 ## Requirements
 
 - OS: Linux (recommended). Bash + Conda available in PATH.
-- Conda environments:
-  - autocycler (activated by the script)
-  - checkm2 (activated for QC at the end)
+- The two conda environments are available for download as .yml files:
+  - AutomatedAutocycler.yml (activated by the script)
+  - checkm2.yml (activated for QC at the end)
 
 - Tools available inside the autocycler environment:
   - AutoCycler CLI (autocycler)
