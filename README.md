@@ -7,7 +7,7 @@ Run the full AutoCycler end-to-end pipeline over all reads in a folder — hands
 - Chooses appropriate mapping preset for minimap2 based on read type
 - Ends with a CheckM2 report
 
-Suitable for high-throughput of ONT and PacBio long reads.
+Suitable for high-throughput assembly of ONT and PacBio long reads.
 
 ---
 
