@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # This script runs the full AutoCycler pipeline on all FASTQ and BAM files
-# in the reads/ directory. It organises the output into step-specific main
+# in the reads/ directory. It organizes the output into step-specific main
 # directories, with each containing subdirectories for every isolate.
 
 # --- Configurable Parameters ---
 FALLBACK_GENOME_SIZE="5000000" # Fallback genome size if auto-detection fails
 THREADS=120 # Number of CPU threads to use. CHANGE THIS to match your system.
 READ_TYPE=pacbio_hifi # Read type [default: ont_r10] [possible values: ont_r9, ont_r10, pacbio_clr, pacbio_hifi]
-READS_DIR="reads" # Path to directory containing input read files
+READS_DIR="reads" # Directory containing input read files
 checkm2_database=/home/mcknid01/softwareDependencies/CheckM2_database/uniref100.KO.1.dmnd  # CheckM2 database path
 
 # --- Initialize conda for this script ---
@@ -122,7 +122,16 @@ for reads_file in "${READS_DIR}"/*.fastq.gz "${READS_DIR}"/*.fastq "${READS_DIR}
             done
         done
     fi
-  
+    #I have disabled this until I finish troubleshooting
+    #echo "Optional: Removing subsampled reads."
+    #rm -rf "${step1_dir}"
+
+    # Clean up converted FASTQ if it was created from BAM
+    #if [[ "${reads_file}" == *.bam ]] && [ -f "${converted_fastq}" ]; then
+    # 	echo "Removing temporary FASTQ file converted from BAM."
+    # 	rm -f "${converted_fastq}"
+    #fi
+
     # Step 3: Compressing assemblies
     echo "Step 3: Compressing assemblies into ${step3_dir}."
     if [ -d "${step3_dir}" ] && [ "$(ls -A "${step3_dir}" 2>/dev/null)" ]; then
