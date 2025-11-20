@@ -75,7 +75,10 @@ Notes:
 
 3) Run:
 ```bash
+# make executable 
 chmod +x run_autocycler.sh
+
+# run
 ./run_autocycler.sh | tee run.log
 ```
 
