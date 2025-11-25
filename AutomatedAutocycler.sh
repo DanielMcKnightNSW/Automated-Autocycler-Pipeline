@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This script runs the full AutoCycler pipeline on all FASTQ and BAM files
-# in the reads/ directory. It organizes the output into step-specific main
+# in the reads/ directory. It organises the output into step-specific main
 # directories, with each containing subdirectories for every isolate.
 
 # --- Configurable Parameters ---
@@ -24,11 +24,9 @@ mkdir -p 00_filtered_reads 01_subsampled_reads 02_assemblies 03_autocycler_out 0
 # Find all common FASTQ and BAM files and loop through them.
 for reads_file in "${READS_DIR}"/*.fastq.gz "${READS_DIR}"/*.fastq "${READS_DIR}"/*.fq.gz "${READS_DIR}"/*.fq "${READS_DIR}"/*.bam; do
     # If no files are found, the loop will run once with the literal string.
-    # This check skips that iteration if the file doesn't actually exist.
     [ -f "$reads_file" ] || continue
 
     # 1. Set up variables for this specific file
-    # Remove extensions to get the base name
     base_name=$(basename "${reads_file}" .fastq.gz | sed 's/\.fastq$//' | sed 's/\.fq\.gz$//' | sed 's/\.fq$//' | sed 's/\.bam$//')
 
     echo "================================================================="
@@ -122,15 +120,6 @@ for reads_file in "${READS_DIR}"/*.fastq.gz "${READS_DIR}"/*.fastq "${READS_DIR}
             done
         done
     fi
-    #I have disabled this until I finish troubleshooting
-    #echo "Optional: Removing subsampled reads."
-    #rm -rf "${step1_dir}"
-
-    # Clean up converted FASTQ if it was created from BAM
-    #if [[ "${reads_file}" == *.bam ]] && [ -f "${converted_fastq}" ]; then
-    # 	echo "Removing temporary FASTQ file converted from BAM."
-    # 	rm -f "${converted_fastq}"
-    #fi
 
     # Step 3: Compressing assemblies
     echo "Step 3: Compressing assemblies into ${step3_dir}."
@@ -247,7 +236,7 @@ echo "Step 10: Assessing assembly quality with CheckM2."
 checkm2_input_dir="05_final_consensus"
 checkm2_output_dir="05_final_consensus/checkM2report"
 
-# Check if CheckM2 has already been run for this isolate by looking for its report file
+# Check if CheckM2 has already been run by looking for report file
 if [ -f "${checkm2_output_dir}/quality_report.tsv" ]; then
     echo "Existing CheckM2 output found. Skipping quality assessment."
 else
