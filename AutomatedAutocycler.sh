@@ -14,7 +14,7 @@ checkm2_database=/home/mcknid01/softwareDependencies/CheckM2_database/uniref100.
 # --- Initialize conda for this script ---
 # This allows conda activate to work within the script
 eval "$(conda shell.bash hook)"
-conda activate AutomatedAutocycle
+conda activate AutomatedAutocycler
 
 # --- Create Top-Level Step Directories Before the Loop ---
 echo "Creating main output directories."
