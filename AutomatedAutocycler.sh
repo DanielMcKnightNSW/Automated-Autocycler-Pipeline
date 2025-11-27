@@ -9,7 +9,7 @@ FALLBACK_GENOME_SIZE="5000000" # Fallback genome size if auto-detection fails
 THREADS=120 # Number of CPU threads to use. CHANGE THIS to match your system.
 READ_TYPE=pacbio_hifi # Read type [default: ont_r10] [possible values: ont_r9, ont_r10, pacbio_clr, pacbio_hifi]
 READS_DIR="reads" # Directory containing input read files
-checkm2_database=/home/mcknid01/softwareDependencies/CheckM2_database/uniref100.KO.1.dmnd  # CheckM2 database path
+checkm2_database=file/path/to/checkm2/diamond/database/uniref100.KO.1.dmnd  # CheckM2 database path
 
 # --- Initialize conda for this script ---
 # This allows conda activate to work within the script
