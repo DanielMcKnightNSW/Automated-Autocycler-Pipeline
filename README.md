@@ -47,6 +47,9 @@ Pipeline overview:
   - AutomatedAutocycler.yml (activated by the script)
   - checkm2.yml (activated for QC at the end)
 
+- Sometimes conda/mamba will not be able to solve the environment, but this can be solved using:
+  - mamba env create -f AutomatedAutocycler.yml --channel-priority flexible
+
 - Tools available inside the autocycler environment:
   - AutoCycler CLI (autocycler)
   - Filtlong (filtlong)
