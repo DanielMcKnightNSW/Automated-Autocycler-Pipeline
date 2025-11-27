@@ -74,7 +74,7 @@ Notes:
    - Accepted formats: .fastq, .fq, .fastq.gz, .fq.gz, or .bam
 
 2) Edit configurable parameters at the top of the script:
-   - THREADS, READ_TYPE, READS_DIR, checkm2_database, FALLBACK_GENOME_SIZE
+   - THREADS, READ_TYPE, READS_DIR, checkm2 database path, FALLBACK_GENOME_SIZE
 
 3) Run:
 ```bash
